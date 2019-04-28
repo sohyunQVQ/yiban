@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录用户账号 - 易班自动签到/发帖/攒网薪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container" style="margin-top:10%">
+	<div class="row clearfix">
+        <div class="col-md-6 column" style="margin-left:auto;margin-right:auto">
+			{%if message%}
+			<div class="alert alert-success alert-dismissable">
+				 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4>
+					提醒!
+				</h4> {{message}}</a>
+			</div>
+			{%endif%}
+			<ul>
+				<li>
+					只限信息学院账户使用
+				</li>
+				<li>
+					登录使用易班账号密码
+				</li>
+				<li>
+					每天8点开始运行签到程序
+				</li>
+				<li>
+					账号提示被登录为正常情况
+				</li>
+                <li>
+					操作内容为：签到-回5帖-发表易喵喵-(更多待完成)
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-6 column" style="margin-left:auto;margin-right:auto">
+			<form role="form" action="/" method="POST">
+				 {% csrf_token %}
+				<div class="form-group">
+					 <label for="Username">易班账号</label><input type="text" class="form-control" id="Username" name="username"/>
+				</div>
+				<div class="form-group">
+					 <label for="Password">易班密码</label><input type="text" class="form-control" id="Password" name="password"/>
+				</div>
+				<div class="form-group">
+					 <label for="blogtext">易班回帖内容</label><input type="text" class="form-control" id="blogtext" name="blogtext"/>
+				</div>
+				<div class="form-group">
+					 <label for="pushtext">易喵喵发帖内容</label><input type="text" class="form-control" id="pushtext" name="pushtext"/>
+				</div>
+                <button type="submit" class="btn btn-info">提交-提交后请勿修改密码, 避开工作时间登录账户</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
